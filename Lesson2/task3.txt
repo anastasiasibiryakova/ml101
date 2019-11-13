@@ -1,0 +1,38 @@
+angle = 90
+speed = 0.005
+
+def setup():
+   size(700, 300)
+   fill(0)
+   noStroke()
+   
+def draw():   
+    background(255, 255, 255)
+    translate(width/2, height/2)
+    global angle
+    rotate(angle)
+    
+    for i in range(15):
+        push()
+        fill(5,160,200)
+        rotate(i + TWO_PI/2)
+        translate(0, mouseX)
+        rect(0, 0, 3, 30)
+        rotate(angle)
+        for j in range(5):
+            push()
+            fill(155,160,0)
+            rotate(j+TWO_PI/5)
+            translate(0,mouseY)
+            triangle(5, 20, 15, 20, 10, 5)
+            rotate(angle)
+            for k in range(5):
+                push()
+                fill(20,120,60)
+                rotate(k*TWO_PI/5)
+                translate(0, 100)
+                ellipse(0, 0, 10, 10)
+                pop()
+            pop()
+        pop()
+    angle = angle + speed
